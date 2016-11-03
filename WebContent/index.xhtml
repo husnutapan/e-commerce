@@ -4,14 +4,90 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
+	<link href="resources/css/style.css"></link>
 
 </h:head>
 
 <h:body>
-	<h:form>
+	<h:form id="form">
+		<p:growl id="messages" />
+		<div id="sidebar">
+			<p:menubar id="menuBar">
+				<p:menuitem value="Ana Sayfa">
+				</p:menuitem>
+				<p:submenu label="Bilgisayar">
+					<p:menuitem value="Taşınabilir" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(1)}" />
+					<p:menuitem value="Tablet PC" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(2)}" />
+					<p:menuitem value="Yazıcı" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(3)}" />
+					<p:menuitem value="Veri Depolama" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(1)}" />
+					<p:menuitem value="Mouse" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(4)}" />
+				</p:submenu>
+
+				<p:submenu label="Telefon">
+					<p:menuitem value="Akıllı Cep" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(5)}" />
+					<p:menuitem value="Telefon Aksesuarı"
+						update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(6)}" />
+					<p:menuitem value="Şarj Cihazı" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(7)}" />
+				</p:submenu>
+
+
+				<p:submenu label="TV Elektronik Oyun">
+					<p:menuitem value="Televizyon" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(8)}" />
+					<p:menuitem value="Navigasyon" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(9)}" />
+					<p:menuitem value="Ses ve Görüntü Sistemi"
+						update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(10)}" />
+					<p:menuitem value="Oyun Konsolu" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(11)}" />
+				</p:submenu>
+
+
+				<p:submenu label="Foto Kamera">
+					<p:menuitem value="Dijital Fotoğraf Makinesi"
+						update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(12)}" />
+					<p:menuitem value="Profesyonel Fotoğraf Makinesi"
+						update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(13)}" />
+					<p:menuitem value="Lens Dürbün" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(14)}" />
+					<p:menuitem value="Video Kamera" update=":form:pageCenterLocation"
+						action="#{productBean.chooseCategory(15)}" />
+				</p:submenu>
+
+
+				<p:menuitem value="Hakkımızda"
+					action="#{productBean.chooseCategory(16)}"
+					update=":form:pageCenterLocation" />
+				<p:menuitem value="
+				Hedefim"
+					action="#{productBean.chooseCategory(17)}"
+					update=":form:pageCenterLocation" />
+			</p:menubar>
+		</div>
+		<div id="wrapper">
+			<div id="content">
+				<p:panel id="pageCenterLocation" style="border : none;">
+					<ui:include src="#{productBean.formPath}"></ui:include>
+				</p:panel>
+
+			</div>
+		</div>
+
 	</h:form>
 </h:body>
 
