@@ -11,13 +11,14 @@
 </h:head>
 
 <h:body>
-	<h:form>
+	<h:form id="form">
+		<p:growl globalOnly="true" autoUpdate="false" />
 		<p:panel id="loginPanel" header="Login Panel">
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Username" />
 				<p:inputText />
-				<p:outputLabel value="Username" />
-				<p:inputText />
+				<p:outputLabel value="Password" />
+				<p:password />
 				<p:commandButton value="Login" />
 				<p:commandButton value="Register" oncomplete="PF('dialog').show()" />
 			</p:panelGrid>
@@ -25,30 +26,35 @@
 
 
 		<p:dialog header="Register Dialog" widgetVar="dialog" id="dialog">
-			<p:messages id="messages" showDetail="true" autoUpdate="true"></p:messages>
+			<p:messages id="messages" showDetail="true" autoUpdate="true" />
 			<p:panelGrid columns="2" id="panelDialog">
 				<p:outputLabel value="Username" />
-				<p:inputText />
+				<p:inputText value="#{userBean.user.username}" />
 
 				<p:outputLabel value="Password" />
-				<p:password id="pwd1" match="pwd2" />
+				<p:password id="pwd1" match="pwd2" value="#{userBean.user.password}" />
 
 				<p:outputLabel value="Confirm Password" />
 				<p:password id="pwd2" />
 
 				<p:outputLabel value="Email" />
-				<p:inputText />
+				<p:inputText id="email" value="#{userBean.user.email}"
+					required="true">
+					<f:validateRegex
+						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</p:inputText>
 
 				<p:outputLabel value="Telephone" />
-				<p:inputMask mask="(999) 999-9999" />
+				<p:inputMask mask="(999) 999-9999"
+					value="#{userBean.user.telephone}" />
 
 				<p:outputLabel value="Address" />
-				<p:inputTextarea rows="5" />
+				<p:inputTextarea rows="5" value="#{userBean.user.address}" />
 
-				<p:commandButton value="Register" update="panelDialog" />
+				<p:commandButton value="Register" update="panelDialog"
+					action="#{userBean.userLogin()}" />
 			</p:panelGrid>
 		</p:dialog>
-
 	</h:form>
 </h:body>
 
