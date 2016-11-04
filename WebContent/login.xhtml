@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:panel id="loginPanel" header="Login Panel">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Username" />
+				<p:inputText />
+				<p:outputLabel value="Username" />
+				<p:inputText />
+				<p:commandButton value="Login" />
+				<p:commandButton value="Register" oncomplete="PF('dialog').show()" />
+			</p:panelGrid>
+		</p:panel>
+
+
+		<p:dialog header="Register Dialog" widgetVar="dialog" id="dialog">
+			<p:messages id="messages" showDetail="true" autoUpdate="true"></p:messages>
+			<p:panelGrid columns="2" id="panelDialog">
+				<p:outputLabel value="Username" />
+				<p:inputText />
+
+				<p:outputLabel value="Password" />
+				<p:password id="pwd1" match="pwd2" />
+
+				<p:outputLabel value="Confirm Password" />
+				<p:password id="pwd2" />
+
+				<p:outputLabel value="Email" />
+				<p:inputText />
+
+				<p:outputLabel value="Telephone" />
+				<p:inputMask mask="(999) 999-9999" />
+
+				<p:outputLabel value="Address" />
+				<p:inputTextarea rows="5" />
+
+				<p:commandButton value="Register" update="panelDialog" />
+			</p:panelGrid>
+		</p:dialog>
+
+	</h:form>
+</h:body>
+
+
+</html>

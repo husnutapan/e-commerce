@@ -69,7 +69,6 @@
 						action="#{productBean.chooseCategory(15)}" />
 				</p:submenu>
 
-
 				<p:menuitem value="Hakkımızda"
 					action="#{productBean.chooseCategory(16)}"
 					update=":form:pageCenterLocation" />
@@ -79,8 +78,24 @@
 					update=":form:pageCenterLocation" />
 			</p:menubar>
 		</div>
-		<div id="wrapper">
-			<div id="content">
+
+
+		<div>
+			<div style="float: left;">
+				<p:panel header="Özellikler">
+					<p:panelGrid columns="2" style="float:left;">
+						<h:outputText value="Basic: " />
+						<p:selectBooleanCheckbox />
+
+						<h:outputText value="Ajax: " />
+						<p:selectBooleanCheckbox>
+						</p:selectBooleanCheckbox>
+					</p:panelGrid>
+				</p:panel>
+
+			</div>
+
+			<div style="margin-left: 25%;">
 				<p:panel id="pageCenterLocation" style="border : none;">
 					<ui:include src="#{productBean.formPath}"></ui:include>
 				</p:panel>
