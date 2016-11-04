@@ -6,17 +6,20 @@ import javax.faces.bean.SessionScoped;
 
 import org.primefaces.context.RequestContext;
 
-import com.ecommerce.model.User;
+import com.ecommerce.model.Kullanici;
+import com.ecommerce.service.UserServiceImpl;
 
 @ManagedBean
 @SessionScoped
 public class UserBean {
 
-	private User user;
+	private Kullanici user;
+
+	public boolean sessionAction = false;
 
 	@PostConstruct
 	public void initialize() {
-		user = new User();
+		user = new Kullanici();
 	}
 
 	public UserBean() {
@@ -24,17 +27,19 @@ public class UserBean {
 	}
 
 	public void userLogin() {
-		System.out.println(user.getEmail());
-		
-		// UPDATE FORM ON BEAN
-		RequestContext.getCurrentInstance().update("form");
+		UserServiceImpl userServiceImpl = new UserServiceImpl();
+		sessionAction = userServiceImpl.saveUser(user);
+
+		if (sessionAction) {
+			RequestContext.getCurrentInstance().update("form");
+		}
 	}
 
-	public User getUser() {
+	public Kullanici getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Kullanici user) {
 		this.user = user;
 	}
 
