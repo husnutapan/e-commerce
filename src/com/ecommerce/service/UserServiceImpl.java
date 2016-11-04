@@ -11,4 +11,10 @@ public class UserServiceImpl implements UserService {
 		return userDAOImpl.saveUser(user);
 	}
 
+	@Override
+	public int userType(Kullanici kullanici) {
+		UserDAOImpl userDAOImpl = new UserDAOImpl();
+		return userDAOImpl.userType(kullanici);
+	}
+
 }

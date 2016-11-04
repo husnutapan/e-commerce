@@ -1,6 +1,8 @@
 package com.ecommerce.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "kullanici")
 public class Kullanici {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
@@ -18,6 +20,9 @@ public class Kullanici {
 	private String email;
 	private String telephone;
 	private String address;
+
+	@Enumerated(EnumType.STRING)
+	private Role role;
 
 	public int getId() {
 		return id;
@@ -67,4 +72,15 @@ public class Kullanici {
 		this.address = address;
 	}
 
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
+	
+	
+	
 }

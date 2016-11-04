@@ -16,17 +16,17 @@
 		<p:panel id="loginPanel" header="Login Panel">
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Username" />
-				<p:inputText />
+				<p:inputText value="#{userBean.user.username}" />
 				<p:outputLabel value="Password" />
-				<p:password />
-				<p:commandButton value="Login" />
+				<p:password value="#{userBean.user.password}" />
+				<p:commandButton value="Login" action="#{userBean.redirectToPage()}" />
 				<p:commandButton value="Register" oncomplete="PF('dialog').show()" />
 			</p:panelGrid>
 		</p:panel>
 
 
-		<p:dialog header="Register Dialog" widgetVar="dialog" id="dialog">
-			<p:messages id="messages" showDetail="true" autoUpdate="true" />
+		<!-- <p:dialog header="Register Dialog" widgetVar="dialog" id="dialog">
+			<p:messages id="messages" showDetail="true" />
 			<p:panelGrid columns="2" id="panelDialog">
 				<p:outputLabel value="Username" />
 				<p:inputText value="#{userBean.user.username}" />
@@ -38,10 +38,7 @@
 				<p:password id="pwd2" />
 
 				<p:outputLabel value="Email" />
-				<p:inputText id="email" value="#{userBean.user.email}"
-					required="true">
-					<f:validateRegex
-						pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				<p:inputText id="email" value="#{userBean.user.email}">
 				</p:inputText>
 
 				<p:outputLabel value="Telephone" />
@@ -54,7 +51,7 @@
 				<p:commandButton value="Register" update="panelDialog"
 					action="#{userBean.userLogin()}" />
 			</p:panelGrid>
-		</p:dialog>
+		</p:dialog> -->
 	</h:form>
 </h:body>
 

@@ -27,12 +27,30 @@ public class UserBean {
 	}
 
 	public void userLogin() {
-		UserServiceImpl userServiceImpl = new UserServiceImpl();
-		sessionAction = userServiceImpl.saveUser(user);
+		// UserServiceImpl userServiceImpl = new UserServiceImpl();
+		// sessionAction = userServiceImpl.saveUser(user);
+		//
+		// if (sessionAction) {
+		// RequestContext.getCurrentInstance().update("form");
+		// }
+	}
 
-		if (sessionAction) {
-			RequestContext.getCurrentInstance().update("form");
+	public String redirectToPage() {
+		UserServiceImpl impl = new UserServiceImpl();
+		int typeId = impl.userType(user);
+
+		if (typeId == 0) {
+			return "login.xhtml?faces-redirect=true";
 		}
+
+		if (typeId == 1) {
+			return "adminPage.xhtml?faces-redirect=true";
+
+		}
+		if (typeId == 2) {
+			return "index.xhtml?faces-redirect=true";
+		}
+		return "";
 	}
 
 	public Kullanici getUser() {
