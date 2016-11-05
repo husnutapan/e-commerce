@@ -16,5 +16,8 @@
 		<mapping class="com.ecommerce.model.Kullanici" />
 		<mapping class="com.ecommerce.model.Product" />
 		<mapping class="com.ecommerce.model.Brand" />
+		<mapping class="com.ecommerce.model.Category" />
+		<mapping class="com.ecommerce.model.SubCategory" />
+
 	</session-factory>
 </hibernate-configuration> 

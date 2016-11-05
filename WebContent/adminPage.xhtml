@@ -13,6 +13,32 @@
 <h:body>
 	<h:form id="form">
 		<p:growl id="messages" />
+		<p:panel>
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Category" />
+				<p:inputText value="#{productBean.category.categoryName}" />
+				<p:outputLabel value="Sub Category" />
+				<p:inputText value="#{productBean.subCategory.subCategoryName}" />
+
+				<p:commandButton value="Add Sub Category" ajax="true"
+					actionListener="#{productBean.addSubCategoryToList()}" 
+					update="form" />
+				<p:commandButton value="Add All" />
+			</p:panelGrid>
+		</p:panel>
+
+
+		<p:panelGrid columns="2" id="subCategoryOrder">
+			<p:outputLabel value="Sub Categories" />
+			<p:orderList value="#{productBean.subCategories}" var="subCat"
+				itemLabel="#{subCat}" itemValue="#{subCat}">
+			</p:orderList>
+		</p:panelGrid>
+
+
+
+
+
 	</h:form>
 </h:body>
 
