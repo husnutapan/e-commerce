@@ -1,10 +1,10 @@
 package com.ecommerce.controller;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
-import org.primefaces.context.RequestContext;
+import javax.faces.context.FacesContext;
 
 import com.ecommerce.model.Kullanici;
 import com.ecommerce.service.UserServiceImpl;
@@ -40,6 +40,10 @@ public class UserBean {
 		int typeId = impl.userType(user);
 
 		if (typeId == 0) {
+			// before redirect flash growl
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.getExternalContext().getFlash().setKeepMessages(true);
+			context.addMessage(null, new FacesMessage("Failure Message", "Login Failure..!"));
 			return "login.xhtml?faces-redirect=true";
 		}
 

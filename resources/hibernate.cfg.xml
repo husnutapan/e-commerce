@@ -15,6 +15,7 @@
 
 		<mapping class="com.ecommerce.model.Kullanici" />
 		<mapping class="com.ecommerce.model.Product" />
+		<mapping class="com.ecommerce.model.ProductsProperty" />
 	</session-factory>
 
 </hibernate-configuration> 
