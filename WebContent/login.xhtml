@@ -12,7 +12,7 @@
 
 <h:body>
 	<h:form id="form">
-		<p:growl id="growl" showDetail="true" sticky="true" globalOnly="true"/>
+		<p:growl id="growl" showDetail="true" sticky="true" globalOnly="true" />
 		<p:panel id="loginPanel" header="Login Panel">
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Username" />
@@ -26,7 +26,7 @@
 		</p:panel>
 
 
-		<!-- <p:dialog header="Register Dialog" widgetVar="dialog" id="dialog">
+		<p:dialog header="Register Dialog" widgetVar="dialog" id="dialog">
 			<p:messages id="messages" showDetail="true" />
 			<p:panelGrid columns="2" id="panelDialog">
 				<p:outputLabel value="Username" />
@@ -52,7 +52,7 @@
 				<p:commandButton value="Register" update="panelDialog"
 					action="#{userBean.userLogin()}" />
 			</p:panelGrid>
-		</p:dialog> -->
+		</p:dialog>
 	</h:form>
 </h:body>
 

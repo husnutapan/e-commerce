@@ -3,26 +3,15 @@ package com.ecommerce.controller;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.ecommerce.model.ProductsProperty;
-import com.ecommerce.service.ProductServiceImpl;
-
 @ManagedBean
 @SessionScoped
 public class ProductBean {
 
 	private String formPath;
 
-	private ProductsProperty property = new ProductsProperty();
-
 	public ProductBean() {
 
 		formPath = "frm_anasayfa_default.xhtml";
-	}
-
-	public void saveProperty() {
-		System.out.println("SAVING PROPERTY");
-		ProductServiceImpl impl = new ProductServiceImpl();
-		impl.savePropery(property);
 	}
 
 	public void chooseCategory(int categoryId) {
@@ -45,13 +34,4 @@ public class ProductBean {
 	public void setFormPath(String formPath) {
 		this.formPath = formPath;
 	}
-
-	public ProductsProperty getProperty() {
-		return property;
-	}
-
-	public void setProperty(ProductsProperty property) {
-		this.property = property;
-	}
-
 }

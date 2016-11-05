@@ -6,6 +6,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.context.RequestContext;
+
 import com.ecommerce.model.Kullanici;
 import com.ecommerce.service.UserServiceImpl;
 
@@ -27,12 +29,12 @@ public class UserBean {
 	}
 
 	public void userLogin() {
-		// UserServiceImpl userServiceImpl = new UserServiceImpl();
-		// sessionAction = userServiceImpl.saveUser(user);
-		//
-		// if (sessionAction) {
-		// RequestContext.getCurrentInstance().update("form");
-		// }
+		UserServiceImpl userServiceImpl = new UserServiceImpl();
+		sessionAction = userServiceImpl.saveUser(user);
+
+		if (sessionAction) {
+			RequestContext.getCurrentInstance().update("form");
+		}
 	}
 
 	public String redirectToPage() {

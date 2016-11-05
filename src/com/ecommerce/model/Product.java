@@ -3,13 +3,13 @@ package com.ecommerce.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,10 +23,11 @@ public class Product {
 
 	private String name;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "product_property", joinColumns = { @JoinColumn(name = "product_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "property_id")})
-	private Set<ProductsProperty> properties = new HashSet<ProductsProperty>();
+	private int price;
+
+	@ManyToOne
+	@JoinColumn(name = "brand_id")
+	private Brand brand;
 
 	public int getId() {
 		return id;
@@ -44,12 +45,20 @@ public class Product {
 		this.name = name;
 	}
 
-	public Set<ProductsProperty> getProperties() {
-		return properties;
+	public Brand getBrand() {
+		return brand;
 	}
 
-	public void setProperties(Set<ProductsProperty> properties) {
-		this.properties = properties;
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 }
