@@ -33,11 +33,17 @@
 			<p:outputLabel value="#{subCat.subCategoryName}" />
 			<br />
 		</ui:repeat> -->
-
+		<!-- 
 		<p:outputLabel value="Save Brand Name" />
 		<p:inputText value="#{productBean.brand.brandName}" />
 		<p:commandButton value="Save Brand"
-			action="#{productBean.saveBrand()}" update="form" />
+			action="#{productBean.saveBrand()}" update="form" /> -->
+
+		<p:selectOneMenu value="#{productBean.brand}">
+			<f:selectItems value="#{productBean.brandList}" var="brand"
+				itemLabel="#{brand.brandName}" />
+		</p:selectOneMenu>
+
 
 	</h:form>
 </h:body>

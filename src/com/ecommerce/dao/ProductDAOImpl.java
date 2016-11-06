@@ -53,4 +53,12 @@ public class ProductDAOImpl implements ProductDAO {
 
 	}
 
+	@Override
+	public List<Brand> getAllBrandList() {
+		Query query = session.createQuery("from Brand");
+		List list = query.getResultList();
+		List<Brand> brands = list;
+		return brands;
+	}
+
 }

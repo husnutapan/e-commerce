@@ -21,11 +21,17 @@ public class ProductBean {
 
 	private Brand brand = new Brand();
 
+	private List<Brand> brandList = new ArrayList<Brand>();
+
 	public ProductBean() {
+
 		formPath = "frm_anasayfa_default.xhtml";
 
 		ProductServiceImpl impl = new ProductServiceImpl();
 		impl.getAllCategories();
+		brandList = impl.getAllBrandList();
+
+		System.out.println(brandList.get(0).getBrandName());
 
 	}
 
@@ -96,6 +102,14 @@ public class ProductBean {
 
 	public void setBrand(Brand brand) {
 		this.brand = brand;
+	}
+
+	public List<Brand> getBrandList() {
+		return brandList;
+	}
+
+	public void setBrandList(List<Brand> brandList) {
+		this.brandList = brandList;
 	}
 
 }

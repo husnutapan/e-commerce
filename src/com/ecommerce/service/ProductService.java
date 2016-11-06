@@ -11,5 +11,7 @@ public interface ProductService {
 	public List<Category> getAllCategories();
 	
 	public void saveBrand(Brand brand);
+	
+	public List<Brand> getAllBrandList();
 
 }

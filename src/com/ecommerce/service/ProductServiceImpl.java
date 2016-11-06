@@ -27,4 +27,10 @@ public class ProductServiceImpl implements ProductService {
 		daoImpl.saveBrand(brand);
 	}
 
+	@Override
+	public List<Brand> getAllBrandList() {
+		ProductDAOImpl daoImpl = new ProductDAOImpl();
+		return daoImpl.getAllBrandList();
+	}
+
 }

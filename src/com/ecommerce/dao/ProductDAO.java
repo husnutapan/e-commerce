@@ -9,5 +9,5 @@ public interface ProductDAO {
 	public void saveAllCategory(Category category);
 	public List<Category> getAllCategories();
 	public void saveBrand(Brand brand);
-
+	public List<Brand> getAllBrandList();
 }
