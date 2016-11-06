@@ -24,6 +24,13 @@ public class Product {
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
 
+	public Product(String name, int price, Brand brand) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.brand = brand;
+	}
+
 	public int getId() {
 		return id;
 	}

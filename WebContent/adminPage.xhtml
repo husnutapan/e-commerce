@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 
@@ -13,7 +14,7 @@
 <h:body>
 	<h:form id="form">
 		<p:growl id="messages" />
-		<p:panel>
+		<!-- <p:panel>
 			<p:panelGrid columns="2">
 				<p:outputLabel value="Category" />
 				<p:inputText value="#{productBean.category.categoryName}" />
@@ -21,23 +22,22 @@
 				<p:inputText value="#{productBean.subCategory.subCategoryName}" />
 
 				<p:commandButton value="Add Sub Category" ajax="true"
-					actionListener="#{productBean.addSubCategoryToList()}" 
+					actionListener="#{productBean.addSubCategoryToList()}"
 					update="form" />
-				<p:commandButton value="Add All" />
+				<p:commandButton value="Add All" update="form"
+					action="#{productBean.addAllCategory()}" />
 			</p:panelGrid>
 		</p:panel>
 
+		<ui:repeat var="subCat" value="#{productBean.subCategories}">
+			<p:outputLabel value="#{subCat.subCategoryName}" />
+			<br />
+		</ui:repeat> -->
 
-		<p:panelGrid columns="2" id="subCategoryOrder">
-			<p:outputLabel value="Sub Categories" />
-			<p:orderList value="#{productBean.subCategories}" var="subCat"
-				itemLabel="#{subCat}" itemValue="#{subCat}">
-			</p:orderList>
-		</p:panelGrid>
-
-
-
-
+		<p:outputLabel value="Save Brand Name" />
+		<p:inputText value="#{productBean.brand.brandName}" />
+		<p:commandButton value="Save Brand"
+			action="#{productBean.saveBrand()}" update="form" />
 
 	</h:form>
 </h:body>

@@ -6,8 +6,10 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.ecommerce.model.Brand;
 import com.ecommerce.model.Category;
 import com.ecommerce.model.SubCategory;
+import com.ecommerce.service.ProductServiceImpl;
 
 @ManagedBean
 @SessionScoped
@@ -17,13 +19,30 @@ public class ProductBean {
 	private SubCategory subCategory = new SubCategory();
 	private List<SubCategory> subCategories = new ArrayList<SubCategory>();
 
+	private Brand brand = new Brand();
+
 	public ProductBean() {
 		formPath = "frm_anasayfa_default.xhtml";
+
+		ProductServiceImpl impl = new ProductServiceImpl();
+		impl.getAllCategories();
+
+	}
+
+	public void saveBrand() {
+		ProductServiceImpl impl = new ProductServiceImpl();
+		impl.saveBrand(brand);
 	}
 
 	public void addSubCategoryToList() {
 		subCategories.add(subCategory);
 		subCategory = new SubCategory();
+	}
+
+	public void addAllCategory() {
+		category.setSubCategories(subCategories);
+		ProductServiceImpl impl = new ProductServiceImpl();
+		impl.saveAllCategory(category);
 	}
 
 	public void chooseCategory(int categoryId) {
@@ -69,6 +88,14 @@ public class ProductBean {
 
 	public void setSubCategory(SubCategory subCategory) {
 		this.subCategory = subCategory;
+	}
+
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}
 
 }
