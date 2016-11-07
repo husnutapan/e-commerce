@@ -30,25 +30,31 @@ public class ProductBean {
 		ProductServiceImpl impl = new ProductServiceImpl();
 		impl.getAllCategories();
 		brandList = impl.getAllBrandList();
+		//
+		// System.out.println(brandList.get(0).getBrandName());
 
-		System.out.println(brandList.get(0).getBrandName());
+	}
+
+	public void addProduct() {
+		System.out.println("geldi");
+		System.out.println(brand.getBrandName());
 
 	}
 
 	public void saveBrand() {
-		ProductServiceImpl impl = new ProductServiceImpl();
-		impl.saveBrand(brand);
+		// ProductServiceImpl impl = new ProductServiceImpl();
+		// impl.saveBrand(brand);
 	}
 
 	public void addSubCategoryToList() {
-		subCategories.add(subCategory);
-		subCategory = new SubCategory();
+		// subCategories.add(subCategory);
+		// subCategory = new SubCategory();
 	}
 
 	public void addAllCategory() {
-		category.setSubCategories(subCategories);
-		ProductServiceImpl impl = new ProductServiceImpl();
-		impl.saveAllCategory(category);
+		// category.setSubCategories(subCategories);
+		// ProductServiceImpl impl = new ProductServiceImpl();
+		// impl.saveAllCategory(category);
 	}
 
 	public void chooseCategory(int categoryId) {

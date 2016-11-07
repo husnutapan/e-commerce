@@ -33,17 +33,25 @@
 			<p:outputLabel value="#{subCat.subCategoryName}" />
 			<br />
 		</ui:repeat> -->
-		<!-- 
-		<p:outputLabel value="Save Brand Name" />
+
+		<!-- 	<p:outputLabel value="Save Brand Name" />
 		<p:inputText value="#{productBean.brand.brandName}" />
 		<p:commandButton value="Save Brand"
-			action="#{productBean.saveBrand()}" update="form" /> -->
+			action="#{productBean.saveBrand()}" update="form" />
+ -->
 
-		<p:selectOneMenu value="#{productBean.brand}">
+
+		<p:selectOneMenu value="#{productBean.brand}" effect="fade"
+			converter="brandConverter">
 			<f:selectItems value="#{productBean.brandList}" var="brand"
-				itemLabel="#{brand.brandName}" />
+				noSelectionValue="true" itemLabel="#{brand.brandName}"
+				itemValue="#{brand}" />
 		</p:selectOneMenu>
 
+
+
+		<p:commandButton value="Add Product"
+			action="#{productBean.addProduct()}" update="form" />
 
 	</h:form>
 </h:body>
